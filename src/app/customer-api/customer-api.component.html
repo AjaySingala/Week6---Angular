@@ -1,0 +1,27 @@
+<p>
+  customer-api works!
+</p>
+
+<h2>A Customer's Details</h2>
+<div>
+    Id:
+    <input type="text" [(ngModel)]="customer.Id" /> 
+    Firstname: <input type="text" [(ngModel)]="customer.Firstname" /> 
+    Lastname: <input type="text" [(ngModel)]="customer.Lastname" />
+    <input type="button" value="Edit Customer" (click)="updateCustomer()" />
+  </div>
+  
+<h2>List of Customers</h2>
+<div *ngFor="let aCustomer of customers" (click)="deleteCustomer(aCustomer.Id)">
+  Id: {{aCustomer.Id}} => Name: {{aCustomer.Lastname}}, {{aCustomer.Firstname}}
+</div>
+
+<div>
+  Id: <input type="text" [(ngModel)]="customerToAdd.Id" />
+  Firstname: <input type="text" [(ngModel)]="customerToAdd.Firstname" />
+  Lastname: <input type="text" [(ngModel)]="customerToAdd.Lastname" />
+  <input type="button" value="Add Customer" (click)="addCustomer()" />
+</div>
+<p>
+  {{newCustomer.Firstname}}
+</p>

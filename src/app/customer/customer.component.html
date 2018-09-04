@@ -1,0 +1,22 @@
+<p>
+  customer works!
+</p>
+
+<div>
+  <input type="button" value="Click Me" (click)="test()" />
+  <p>Firstname: {{customer.firstName}}</p>
+  <p>Lastname: {{customer.lastName}}</p>
+</div>
+
+<div>
+  Firstname: <input type="text" [(ngModel)]="firstName" />
+  Lastname: <input type="text" [(ngModel)]="lastName" />
+  <input type="button" value="Add" (click)="add()" />
+  <span>{{firstName}} - {{lastName}}</span>
+</div>
+
+<div>
+  <p *ngFor="let cust of customers; let i = index" (click)="delete(i)">
+      Firstname: {{cust.firstName}} - Lastname: {{cust.lastName}}
+  </p>
+</div>

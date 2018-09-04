@@ -1,0 +1,24 @@
+<p>
+  home works!
+</p>
+
+<div>
+  <p>Your bucket list has {{itemCount}} items.</p>
+</div>
+<div>
+  <input type="text" [value]="fname" />
+  <input type="text" name="item" placeholder="Life goal.." [(ngModel)]="goalText">
+  <input type="button" [value]="btnText" (click)="addItem()" />
+  <input type="button" value="{{btn2Text}}" />
+
+  <br>
+  <span>{{goalText}}</span>
+
+</div>
+
+<div class="col">
+  <p class="life-container" *ngFor="let goal of goals; let i = index" 
+      (click)="removeItem(i)">
+    {{ goal }}
+  </p>
+</div>

@@ -1,21 +1,105 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Uncomment the following to demo Pipes -->
+<!-- <div>
+  <div>
+    <h2>Currency Pipes</h2>
+    <p>{{1234 | currency: 'USD'}}</p>
+    <p>{{1234 | currency: 'CAD' | lowercase }}</p>
+    <p>{{1234 | currency: 'CAD':"code" }}</p>
+    <p>{{1234 | currency: 'CAD':"symbol" }}</p>
+    <p>{{1234 | currency: 'CAD':"symbol-narrow" }}</p>
+    <p>{{"Ajay SINGALA" | lowercase}}</p>
+  </div>
 
-<router-outlet></router-outlet>
+  <div>
+      <h2>Case Pipes</h2>
+      <p>{{"Ajay SINGALA" | uppercase }}</p>
+      <p>{{"Ajay SINGALA" | lowercase }}</p>
+  </div>
+
+  <div>
+      <h2>Percent Pipes</h2>
+      <p ngNonBindable>{{ 0.123456 | percent }}</p>
+      <p>{{ 0.123456 | percent }}</p>
+
+      <p ngNonBindable>{{ 0.123456 | percent: '2.1-2' }}</p> 
+      <p>{{ 0.123456 | percent: '2.1-2' }}</p>
+
+      <p ngNonBindable>{{ 0.123456 | percent: '10.4-4' }}</p>
+      <p>{{ 0.123456 | percent : "10.4-4" }}</p>
+  </div>
+  
+  <div>
+    <h2>Date Pipes</h2>
+    <p ngNonBindable>{{dateVal | date: 'shortTime'}}</p>
+    <p>{{ dateVal | date: 'shortTime' }}</p>
+
+    <p ngNonBindable>{{ dateVal | date:'fullDate' }}</p>
+    <p>{{ dateVal | date: 'fullDate' }}</p>
+
+    <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>
+    <p>{{ dateVal | date: 'd/M/y' }}</p>
+  </div>
+
+  <div>
+      <h2>Decimal Pipes</h2>
+      <p ngNonBindable>{{value | number: 'minIntegerDigits.minFractionDigits-maxFractionDigits'}}</p>
+     
+      <p ngNonBindable>{{ 3.14159265 | number: '3.1-2' }}</p>
+      <p>{{ 3.14159265 | number: '3.1-2' }}</p>
+
+      <p ngNonBindable>{{ 3.14159265 | number: '1.4-4' }}</p>
+      <p>{{ 3.14159265 | number: '1.4-4' }}</p>
+  </div>
+
+  <div>
+      <h2>JSON Pipes</h2>
+      <p ngNonBindable>{{ jsonValue }}</p>
+      <pre>{{ jsonVal }}</pre>
+
+      <p ngNonBindable>{{ jsonValue | json }}</p>
+      <p>{{ jsonVal | json }}</p>
+  </div>
+
+  
+  <div>
+      <h2>Slice Pipes</h2>
+      <h3><em>Slice</em> an array.</h3>
+      <h4><strong>syntax:</strong><em>slice:</em>start index:end index</h4>
+      <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:1:3 }}</p> 
+      <p>{{ [1,2,3,4,5,6] | slice:1:3 }}</p>
+
+      <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2 }}</p> 
+      <p>{{ [1,2,3,4,5,6] | slice:2 }}</p>
+
+      <em>a negative number for <strong>end index</strong> is an offset from the end</em>
+      <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p> 
+      <p>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p>
+
+      <pre ngNonBindable>
+  &lt;ul&gt;
+    &lt;li *ngFor=&quot;let v of [1,2,3,4,5,6] | slice:2:-1&quot;&gt;
+      {{v}}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+      </pre>
+
+      <ul>
+        <li *ngFor="let v of [1,2,3,4,5,6] | slice:2:-1"> 
+          {{v}}
+        </li>
+      </ul>
+  </div>
+
+</div> -->
+
+<div class="app-content">
+  <ul>
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="about/10">About</a></li>
+    <li><a routerLink="customer">Customer</a></li>
+    <li><a routerLink="customerList">All Customers</a></li>
+    <li><a routerLink="wiki">Wikipedia Search</a></li>
+    <li><a routerLink="observer">Observable</a></li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
